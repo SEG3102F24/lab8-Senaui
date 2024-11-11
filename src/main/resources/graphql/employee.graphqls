@@ -8,11 +8,6 @@ type Employee {
     email: String
 }
 
-type Query {
-    employees: [Employee]
-    employeeById(id: ID!): Employee
-}
-
 input CreateEmployeeInput {
     name: String!
     dateOfBirth: String!
@@ -23,7 +18,10 @@ input CreateEmployeeInput {
 }
 
 type Mutation {
-    newEmployee(input: CreateEmployeeInput!): Employee
-    deleteEmployee(id: ID!): Boolean
-    updateEmployee(id: ID!, input: CreateEmployeeInput!): Employee
+    newEmployee(createEmployeeInput: CreateEmployeeInput!): Employee
+}
+
+type Query {
+    employees: [Employee]
+    employeeById(id: ID!): Employee
 }
